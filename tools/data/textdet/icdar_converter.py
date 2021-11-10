@@ -35,7 +35,7 @@ def collect_files(img_dir, gt_dir):
 
     files = []
     for img_file in imgs_list:
-        gt_file = gt_dir + '/gt_' + osp.splitext(
+        gt_file = gt_dir + '/' + osp.splitext(
             osp.basename(img_file))[0] + '.txt'
         files.append((img_file, gt_file))
     assert len(files), f'No images found in {img_dir}'

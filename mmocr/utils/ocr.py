@@ -642,7 +642,7 @@ class MMOCR:
         if isinstance(args.img, str):
             img_path = Path(args.img)
             if img_path.is_dir():
-                img_list = [str(x) for x in img_path.glob('*')]
+                img_list = [str(x) for x in img_path.glob('*.jpg')]
             else:
                 img_list = [str(img_path)]
         elif isinstance(args.img, np.ndarray):
@@ -664,7 +664,7 @@ class MMOCR:
             output_path = Path(args.output)
             if output_path.is_dir():
                 args.output = [
-                    str(output_path / f'out_{x}.png') for x in args.filenames
+                    str(output_path / f'{x}.png') for x in args.filenames
                 ]
             else:
                 args.output = [str(args.output)]
@@ -679,7 +679,7 @@ class MMOCR:
         if args.export:
             export_path = Path(args.export)
             args.export = [
-                str(export_path / f'out_{x}.{args.export_format}')
+                str(export_path / f'{x}.{args.export_format}')
                 for x in args.filenames
             ]
         else:
