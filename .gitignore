@@ -8,7 +8,7 @@ __pycache__/
 *.so
 
 # Distribution / packaging
-results/
+results/*
 .Python
 build/
 develop-eggs/
@@ -139,7 +139,7 @@ htmlcov
 *.swp
 log.txt
 workspace.code-workspace
-results
+results/*
 mmocr/core/font.TTF
 mmocr/.mim
 workdirs/
