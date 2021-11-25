@@ -15,7 +15,6 @@ def convert_annotations(image_infos, out_json_name):
     assert isinstance(image_infos, list)
     assert isinstance(out_json_name, str)
     assert out_json_name
-
     out_json = dict()
     img_id = 0
     ann_id = 0

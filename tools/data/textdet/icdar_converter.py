@@ -101,6 +101,9 @@ def load_img_info(files, dataset):
         # e.g., 695,885,866,888,867,1146,696,1143,Latin,9
         line = line.strip()
         strs = line.split(',')
+        if len(strs) <8:
+            print(gt_file)
+            continue
         category_id = 1
         xy = [int(x) for x in strs[0:8]]
         coordinates = np.array(xy).reshape(-1, 2)
@@ -163,7 +166,7 @@ def main():
 
     img_dir = osp.join(icdar_path, 'imgs')
     gt_dir = osp.join(icdar_path, 'annotations')
-
+    print(str(img_dir))
     set_name = {}
     for split in args.split_list:
         set_name.update({split: 'instances_' + split + '.json'})

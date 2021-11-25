@@ -642,7 +642,8 @@ class MMOCR:
         if isinstance(args.img, str):
             img_path = Path(args.img)
             if img_path.is_dir():
-                img_list = [str(x) for x in img_path.glob('*.jpg')]
+                # img_list = [str(x) for x in img_path.glob('*.jpg')]
+                img_list = [str(x) for x in img_path.glob('*')]
             else:
                 img_list = [str(img_path)]
         elif isinstance(args.img, np.ndarray):

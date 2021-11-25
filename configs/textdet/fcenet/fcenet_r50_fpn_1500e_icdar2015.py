@@ -34,7 +34,7 @@ train_cfg = None
 test_cfg = None
 
 dataset_type = 'IcdarDataset'
-data_root = 'data/icdar2015/'
+data_root = 'data/'
 
 img_norm_cfg = dict(
     mean=[123.675, 116.28, 103.53], std=[58.395, 57.12, 57.375], to_rgb=True)
@@ -112,7 +112,7 @@ data = dict(
         ann_file=data_root + '/instances_test.json',
         img_prefix=data_root + '/imgs',
         pipeline=test_pipeline))
-evaluation = dict(interval=5, metric='hmean-iou')
+evaluation = dict(interval=30, metric='hmean-iou')
 
 # optimizer
 optimizer = dict(type='SGD', lr=1e-3, momentum=0.90, weight_decay=5e-4)

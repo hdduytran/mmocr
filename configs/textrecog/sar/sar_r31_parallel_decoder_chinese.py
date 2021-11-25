@@ -1,6 +1,6 @@
 _base_ = ['../../_base_/default_runtime.py']
 
-dict_file = 'data/chineseocr/labels/dict_printed_chinese_english_digits.txt'
+dict_file = 'data/VinTextVietSceneTextWordCropped/new_dict.txt'
 label_convertor = dict(
     type='AttnConvertor', dict_file=dict_file, with_unknown=True)
 
@@ -78,9 +78,9 @@ test_pipeline = [
 
 dataset_type = 'OCRDataset'
 
-train_prefix = 'data/chinese/'
+train_prefix = 'data/VinTextVietSceneTextWordCropped/'
 
-train_ann_file = train_prefix + 'labels/train.txt'
+train_ann_file = 'data/VinTextVietSceneTextWordCropped/VinText_VietSceneText_label.txt'
 
 train = dict(
     type=dataset_type,
@@ -97,10 +97,9 @@ train = dict(
     pipeline=None,
     test_mode=False)
 
-test_prefix = 'data/chineseocr/'
+test_prefix = 'data/VinTextVietSceneTextWordCropped/'
 
-test_ann_file = test_prefix + 'labels/test.txt'
-
+test_ann_file = 'data/VinTextVietSceneTextWordCropped/test13k_label.txt'
 test = dict(
     type=dataset_type,
     img_prefix=test_prefix,
@@ -129,4 +128,4 @@ data = dict(
     test=dict(
         type='UniformConcatDataset', datasets=[test], pipeline=test_pipeline))
 
-evaluation = dict(interval=1, metric='acc')
+evaluation = dict(interval=5, metric='acc')

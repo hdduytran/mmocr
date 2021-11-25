@@ -579,9 +579,9 @@ def draw_texts_by_pil(img, texts, boxes=None, draw_box=True, on_ori_img=False):
         box_width = max(max_x - min_x, max_y - min_y)
         font_size = int(0.9 * box_width / len(text))
         dirname, _ = os.path.split(os.path.abspath(__file__))
-        font_path = os.path.join(dirname, 'font.TTF')
+        font_path = os.path.join(dirname, 'times.ttf')
         if not os.path.exists(font_path):
-            url = ('http://download.openmmlab.com/mmocr/data/font.TTF')
+            url = ('https://www.freebestfonts.com/download?fn=1909')
             print(f'Downloading {url} ...')
             local_filename, _ = urllib.request.urlretrieve(url)
             shutil.move(local_filename, font_path)
@@ -606,7 +606,7 @@ def is_contain_chinese(check_str):
     for ch in check_str:
         if u'\u4e00' <= ch <= u'\u9fff':
             return True
-    return False
+    return True
 
 
 def det_recog_show_result(img, end2end_res, out_file=None):
